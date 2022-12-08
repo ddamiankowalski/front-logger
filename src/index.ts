@@ -1,27 +1,19 @@
-import * as express from 'express';
-import { Request, Response } from 'express';
-import { sayHi } from './database/db';
-
-sayHi()
-
-const app = express();
+import DBManager from './database/db';
+import Server from './server/server';
 
 declare const module: any;
-var server: any;
-if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => server.close());
-}
+const { PORT = 3000 } = process.env;
 
-const {
-  PORT = 3000,
-} = process.env;
-app.get('/', (req: Request, res: Response) => {
-  res.send({
-    message: 'nietak',
-  });
-});
+const server = Server.getInstance(PORT);
+const db = DBManager.getInstance();
+db.query("SELECT * FROM user", function(err: any, rows: any, fields: any) {
+    console.log(rows)
+ })
 
-server = app.listen(PORT, () => {
-  console.log('server startesd at http://localhsost:'+PORT);
-});
+/**
+ * HMR functionality
+ */
+ if (module.hot) {
+     module.hot.accept();
+     module.hot.dispose(() => server!.close());
+ }

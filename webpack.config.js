@@ -13,7 +13,7 @@ fs.readdirSync('node_modules')
     });
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: [
         'webpack/hot/poll?1000',
         './src/index.ts'
