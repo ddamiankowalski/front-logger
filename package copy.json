@@ -1,0 +1,28 @@
+{
+  "name": "front-logger",
+  "version": "1.0.0",
+  "description": "A logger service used to log front-end information to the backend server",
+  "private": true,
+  "scripts": {
+    "start:dev": "NODE_ENV=development webpack",
+    "run:dev": "NODE_ENV=development nodemon build.js",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Damian Kowalski",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-shell-plugin-next": "^2.3.1"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.11",
+    "express": "^4.18.2",
+    "source-map-support": "^0.5.21"
+  }
+}
