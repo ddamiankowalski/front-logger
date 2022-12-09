@@ -6,12 +6,19 @@ export class SequelizeDBController {
 
     private static modelClasses: Map<string, any> = new Map();
 
-    public async getClass(): Promise<any> {
-        const classInstance = SequelizeDBController.modelClasses.get('logs');
-        const record = await classInstance.create({ logValue: 'tescior' })
-        await record.save();
+    /**
+     * Gets a Sequelize class for further operations
+     * @param className name of the sequelize class
+     */
+    public getClass(className: string): any {
+        return SequelizeDBController.modelClasses.get(className);
     }
 
+    /**
+     * Syncs the model classes with the DB
+     * @param sequelizeInstance 
+     * @returns a promise
+     */
     public async syncModelClasses(sequelizeInstance: any): Promise<any> {
         await sequelizeInstance.sync({ force: true });
         return sequelizeInstance;

@@ -1,17 +1,22 @@
 import DBSequelize from './database/sequelize';
 import Server from './server/server';
 import { SequelizeDBController } from './database/dbcontroller';
+import { RoutingManager } from './api/manager';
+import { router } from './api/routes';
 
 declare const module: any;
 const { PORT = 3000 } = process.env;
 
-const server = Server.getInstance(PORT);
 const sequelizeController = new SequelizeDBController();
-
 DBSequelize.getSequelize()
     .then(sequelize => sequelizeController.initializeModel(sequelize))
     .then(sequelize => sequelizeController.syncModelClasses(sequelize))
-    .then(() => sequelizeController.getClass())
+
+const server = Server.getInstance(PORT);
+const express = Server.getExpressApp();
+
+RoutingManager.initialize(express, sequelizeController);
+RoutingManager.configureRoutes('/', router);
 
 /**
  * HMR functionality
