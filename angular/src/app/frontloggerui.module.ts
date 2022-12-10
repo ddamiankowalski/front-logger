@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GlobalModule } from './global/global.module';
 
 import { AppInitService } from './global/services/appinit.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 function appInitFactory(appInitService: AppInitService) {
   return (): Promise<any> => appInitService.initializeApplication();
@@ -24,7 +25,8 @@ export class FrontLoggerUI {
   ],
   imports: [
     BrowserModule,
-    GlobalModule
+    GlobalModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AppInitService,
