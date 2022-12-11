@@ -1,10 +1,18 @@
 <mat-drawer-container [hasBackdrop]="true" class="container-app" autosize>
-    <mat-drawer #drawer [opened]="menu.expanded$ | async" class="example-sidenav" mode="side">
+    <mat-drawer 
+      #drawer 
+      (closedStart)="closeMenu()" 
+      [opened]="menu.expanded$ | async" 
+      class="example-sidenav" 
+      mode="over"
+    >
       <drawer-content></drawer-content>
     </mat-drawer>
     <div class="container--drawer-content">
-        <div class="container app-background"></div>
-        <toolbar class="container container-toolbar"></toolbar>
+        <div class="container app-background">
+          <app-information-container class="container container-information container-gap__medium"></app-information-container>
+        </div>
+        <toolbar class="container container-toolbar" [class.mat-elevation-z4]="true"></toolbar>
         <grid-section class="container container-grow"></grid-section>
     </div>
   </mat-drawer-container>

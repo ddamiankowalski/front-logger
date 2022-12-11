@@ -1,1 +1,5 @@
-<p>drawer-content works!</p>
+<section class="container container-drawer">
+    <ng-template ngFor let-button [ngForOf]="buttons">
+        <sidenav-button matRipple [message]="button.message" class="container container-drawer__item"></sidenav-button>
+    </ng-template>
+</section>

@@ -7,6 +7,7 @@
     &--drawer-content
         height: 100%
         display: flex
+        flex-direction: column
 
     display: flex
     align-items: center
@@ -45,3 +46,37 @@
         &--left
             &__small
                 width: 16px
+    
+    &.container-drawer
+        display: flex
+        flex-direction: column
+        width: 300px
+        font-weight: 100
+
+        &__item
+            display: flex
+            width: 100%
+            user-select: none
+            
+            &:hover
+                cursor: pointer
+                background: mat.get-color-from-palette(mat.$blue-grey-palette, 50)
+
+        &__button
+            display: flex
+            align-items: center
+            justify-content: center
+            margin: 16px
+
+    &.container-information
+        margin-left: 48px
+        margin-right: 48px
+        transform: translateY(-64px)
+        width: 100%
+        color: #fff
+
+        &__item
+            margin: 0
+            flex-grow: 1
+            flex-flow: column
+            align-items: flex-start

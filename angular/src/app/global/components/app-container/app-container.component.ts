@@ -12,7 +12,10 @@ export class AppContainerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.menu.expanded$.subscribe(x => console.log(x))
+  }
+
+  public closeMenu(): void {
+    this.menu.expanded$.next(false);
   }
 
 }

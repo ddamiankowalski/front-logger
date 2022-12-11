@@ -8,6 +8,11 @@ export class DrawerContentComponent implements OnInit {
 
   constructor() { }
 
+  public buttons: Array<any> = [
+    { message: 'Example1' },
+    { message: 'Example2' }
+  ]
+
   ngOnInit(): void {
   }
 
