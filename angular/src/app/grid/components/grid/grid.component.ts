@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { Observable } from 'rxjs';
@@ -17,12 +17,13 @@ export class GridComponent implements OnInit {
     private grid: GridService
   ) {}
 
+  @Input() public appName: string = '';
+
   public columnDefs: ColDef[] = this.grid.getColumnDefs();
   public defaultColDefs: ColDef = this.grid.getDefaultColDefs();
-  public rowData$?: Observable<any> = this.grid.getData();
-
+  public rowData$?: Observable<any> | undefined;
 
   ngOnInit(): void {
-    this.rowData$ = this.grid.getData();
+    this.rowData$ = this.grid.getData(this.appName);
   }
 }

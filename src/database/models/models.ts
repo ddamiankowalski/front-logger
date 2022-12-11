@@ -15,6 +15,11 @@ export const models: Array<Model> = [
                 name: 'logValue',
                 type: DataTypes.STRING,
                 allowNull: false
+            },
+            {
+                name: 'appName',
+                type: DataTypes.STRING,
+                allowNull: false
             }
         ]
     },
@@ -28,18 +33,24 @@ export const models: Array<Model> = [
                 primaryKey: true
             },
             {
-                name: 'configKey',
+                name: 'appName',
                 type: DataTypes.STRING,
                 allowNull: false
             },
             {
-                name: 'configValue',
+                name: 'icon',
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: true
+            },
+            {
+                name: 'config',
+                type: DataTypes.STRING,
+                allowNull: true
             },
             {
                 name: 'isActive',
-                type: DataTypes.BOOLEAN
+                type: DataTypes.BOOLEAN,
+                defaultValue: true
             }
         ]
     }

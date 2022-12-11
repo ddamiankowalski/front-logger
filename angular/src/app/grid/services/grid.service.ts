@@ -1,16 +1,19 @@
 import { Injectable } from "@angular/core";
 import { ColDef } from "ag-grid-community";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
+import { BackendService } from "src/app/global/services/backend.service";
 
 @Injectable()
 export class GridService {
-    constructor() {}
+    constructor(
+        private backend: BackendService
+    ) {}
 
     public getColumnDefs(): ColDef[] {
         return [
-            { field: 'make' },
-            { field: 'price' },
-            { field: 'model' },
+            { field: 'id' },
+            { field: 'logValue' },
+            { field: 'createdAt' },
         ];
     }
 
@@ -23,17 +26,7 @@ export class GridService {
         }
     }
 
-    public getData(): Observable<any> {
-        return new Observable((observer) => {
-            setTimeout(() => {
-                observer.next(
-                    [
-                        { make: 'Toyota', model: 'Celica', price: 35000 },
-                        { make: 'Ford', model: 'Mondeo', price: 32000 },
-                        { make: 'Porsche', model: 'Boxster', price: 72000 }
-                    ]
-                )
-            }, 300)
-        })
+    public getData(appName: string): Observable<any> {
+        return this.backend.getLogs(appName);
     }
 }

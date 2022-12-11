@@ -20,7 +20,7 @@ export class SequelizeDBController {
      * @returns a promise
      */
     public async syncModelClasses(sequelizeInstance: any): Promise<any> {
-        await sequelizeInstance.sync({ force: true });
+        //await sequelizeInstance.sync({ force: true });
         return sequelizeInstance;
     }
 
@@ -29,7 +29,7 @@ export class SequelizeDBController {
      * @param sequelizeInstance 
      */
     public async initializeModel(sequelizeInstance: any): Promise<any> {
-        await this.dropSequelize(sequelizeInstance);
+        //await this.dropSequelize(sequelizeInstance);
 
         models.forEach(async (model: Model) => {
             SequelizeDBController.modelClasses.set(

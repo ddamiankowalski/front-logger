@@ -1,11 +1,7 @@
-<div class="container container-width__full container-gap__medium">
-    <card class="container container-grow margin-left__large">
-        <grid></grid>
-    </card>
-    <card class="container container-grow">
-        <grid></grid>
-    </card>
-    <card class="container container-grow margin-right__large">
-        <grid></grid>
-    </card>
+<div class="container container-width__full container-gap__medium margin-horizontal__large">
+    <ng-template ngFor let-app [ngForOf]="apps">
+        <card class="container container-grid">
+            <grid [appName]="app.appName"></grid>
+        </card>
+    </ng-template>
 </div>

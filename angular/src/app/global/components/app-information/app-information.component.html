@@ -1,4 +1,6 @@
-<div class="container container-information__item">
-    <h1>{{ header }}</h1>
-    <p>This is a sample header example lorem ipsum</p>
+<div class="container">
+    <mat-icon *ngIf="icon" class="icon-margin__small">{{ icon }}</mat-icon>
+    <span class="text text-header">{{ header }}</span>
 </div>
+<div class="container container-spacer--top__small"></div>
+<p>This is a sample header example lorem ipsum</p>

@@ -1,6 +1,7 @@
 import { NgModule, Component, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { GlobalModule } from './global/global.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppInitService } from './global/services/appinit.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +27,8 @@ export class FrontLoggerUI {
   imports: [
     BrowserModule,
     GlobalModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     AppInitService,

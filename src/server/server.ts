@@ -3,6 +3,8 @@ import * as http from 'http';
 import * as core from 'express-serve-static-core';
 import * as bodyParser from 'body-parser';
 
+var cors = require('cors');
+
 export default class Server {
     constructor() {}
 
@@ -14,6 +16,7 @@ export default class Server {
 
             this._expressApp = express();
             this._expressApp.use(bodyParser.json());
+            this._expressApp.use(cors());
             this._server = this._expressApp.listen(port, () => {
                 console.log(`front-logger server started at http://localhost: ${port}`);
             });

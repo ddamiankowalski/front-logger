@@ -12,6 +12,9 @@
     display: flex
     align-items: center
 
+    &.container-grid
+        flex-basis: calc(33% -  16px)
+
     &.container-grow
         flex-grow: 1
 
@@ -42,6 +45,10 @@
 
     &.container-spacer
         flex: 1 1 auto
+
+        &--top
+            &__small
+                height: 16px
 
         &--left
             &__small
@@ -77,6 +84,6 @@
 
         &__item
             margin: 0
-            flex-grow: 1
+            flex-basis: calc(33% -  16px)
             flex-flow: column
             align-items: flex-start

@@ -8,7 +8,7 @@ export interface Model {
 export interface ModelDataDescription {
     name?: any,
     type?: AbstractDataTypeConstructor,
-    defaultValue?: AbstractDataTypeConstructor,
+    defaultValue?: AbstractDataTypeConstructor | any,
     primaryKey?: boolean,
     allowNull?: boolean
 }

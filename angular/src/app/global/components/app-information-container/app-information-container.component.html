@@ -1,3 +1,8 @@
-<app-information class="container container-information__item"></app-information>
-<app-information class="container container-information__item"></app-information>
-<app-information class="container container-information__item"></app-information>
+<ng-template ngFor let-app [ngForOf]="apps">
+    <app-information 
+        class="container container-information__item"
+        [header]="app.appName"
+        [icon]="app.icon"
+    >
+    </app-information>
+</ng-template>
