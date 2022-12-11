@@ -1,0 +1,10 @@
+<mat-toolbar class="custom-color__primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="container container-spacer--left__small"></span>
+    <div *ngFor="let button of buttons">
+        <menu-button [buttonName]="button.name" [isActive]="button.active" [icon]="button.hasIcon"></menu-button>
+    </div>
+    <span class="container container-spacer"></span>
+  </mat-toolbar>

@@ -1,0 +1,40 @@
+@use '@angular/material' as mat
+    
+.container
+    display: flex
+    align-items: center
+
+    &.container-grow
+        flex-grow: 1
+
+    &.container-width
+        &__full
+            width: 100%
+
+    &.container-gap
+        &__small
+            gap: 16px
+        &__medium
+            gap: 32px
+        &__large
+            gap: 48px
+
+    &.app-background
+        position: absolute
+        width: 100%
+        height: 50vh
+        background: mat.get-color-from-palette(mat.$blue-grey-palette, 700)
+        top: 0
+
+    &.container-toolbar
+        position: absolute
+        top: 0
+        width: 100%
+        z-index: 1
+
+    &.container-spacer
+        flex: 1 1 auto
+
+        &--left
+            &__small
+                width: 16px

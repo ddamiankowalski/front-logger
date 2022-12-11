@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { GridService } from '../../services/grid.service';
   selector: 'grid',
   templateUrl: './grid.component.html',
   providers: [GridService],
- // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridComponent implements OnInit {
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;

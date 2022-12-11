@@ -1,5 +1,38 @@
+@use '@angular/material' as mat
 @use './styles/export'
 
 @import './styles/normalize.css'
 @import 'ag-grid-community/styles/ag-grid.css'
 @import 'ag-grid-community/styles/ag-theme-material.css'
+
+body
+    background: #fafafa
+    height: 100vh
+
+.ag-root-wrapper
+    border-radius: 1rem
+
+.ag-theme-material
+    --ag-material-primary-color: #455a64
+
+.custom
+    &-padding
+        &__none.mat-card
+            padding: 0
+    &-color
+        &__primary.mat-toolbar
+            background: mat.get-color-from-palette(mat.$blue-grey-palette, 700)
+            color: white
+
+front-logger-ui
+    display: flex
+    justify-content: center
+    flex-flow: column
+    height: 100%
+
+// app-container
+//     display: flex
+//     flex-flow: column
+//     justify-content: center
+//     width: 100%
+//     height: 100%

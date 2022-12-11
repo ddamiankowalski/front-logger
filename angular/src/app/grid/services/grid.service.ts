@@ -24,10 +24,16 @@ export class GridService {
     }
 
     public getData(): Observable<any> {
-        return of(
-            { make: 'Toyota', model: 'Celica', price: 35000 },
-            { make: 'Ford', model: 'Mondeo', price: 32000 },
-            { make: 'Porsche', model: 'Boxster', price: 72000 }
-        )
+        return new Observable((observer) => {
+            setTimeout(() => {
+                observer.next(
+                    [
+                        { make: 'Toyota', model: 'Celica', price: 35000 },
+                        { make: 'Ford', model: 'Mondeo', price: 32000 },
+                        { make: 'Porsche', model: 'Boxster', price: 72000 }
+                    ]
+                )
+            }, 300)
+        })
     }
 }
