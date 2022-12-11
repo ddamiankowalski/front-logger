@@ -12,7 +12,7 @@ function appInitFactory(appInitService: AppInitService) {
 @Component({
   selector: 'front-logger-ui',
   template: `
-    <app-container></app-container>
+    <app-container class="container-app"></app-container>
   `
 })
 export class FrontLoggerUI {

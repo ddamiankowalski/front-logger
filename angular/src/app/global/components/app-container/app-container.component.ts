@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-container',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public menu: MenuService
+  ) { }
 
   ngOnInit(): void {
+    this.menu.expanded$.subscribe(x => console.log(x))
   }
 
 }

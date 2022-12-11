@@ -15,6 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DrawerContentComponent } from './components/drawer-content/drawer-content.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +25,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
         GridSectionComponent,
         ToolbarComponent,
         MenuButtonComponent,
+        DrawerContentComponent,
     ],
     imports: [ 
         CommonModule,
@@ -31,7 +34,8 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
         MatCardModule,
         MatToolbarModule,
         MatIconModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSidenavModule
     ],
     exports: [
         AppContainerComponent

@@ -1,3 +1,10 @@
-<div class="container app-background"></div>
-<toolbar class="container container-toolbar"></toolbar>
-<grid-section class="container container-grow"></grid-section>
+<mat-drawer-container [hasBackdrop]="true" class="container-app" autosize>
+    <mat-drawer #drawer [opened]="menu.expanded$ | async" class="example-sidenav" mode="side">
+      <drawer-content></drawer-content>
+    </mat-drawer>
+    <div class="container--drawer-content">
+        <div class="container app-background"></div>
+        <toolbar class="container container-toolbar"></toolbar>
+        <grid-section class="container container-grow"></grid-section>
+    </div>
+  </mat-drawer-container>
