@@ -1,8 +1,7 @@
 {
-  "name": "front-logger",
-  "version": "1.0.0",
+  "name": "@kowalskiddamian/frontlogger",
+  "version": "1.0.18",
   "description": "A logger service used to log front-end information to the backend server",
-  "private": true,
   "scripts": {
     "start:dev": "node build/backend",
     "build": "webpack",
