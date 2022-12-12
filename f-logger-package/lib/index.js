@@ -36,41 +36,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Greeter = void 0;
-var FILE_NAME = 'frontlogger.json';
-var fsp = require('fs').promises, path = require('path'), fs = require('fs');
-var find = function (dir, prevDir) {
-    if (dir === void 0) { dir = __dirname; }
-    return __awaiter(void 0, void 0, void 0, function () {
-        var ls;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fsp.readdir(dir)];
-                case 1:
-                    ls = _a.sent();
-                    if (ls.includes(FILE_NAME))
-                        return [2 /*return*/, path.join(dir, FILE_NAME)];
-                    else if (dir === '/' || dir === prevDir)
-                        throw new Error("In order to use the front-logger please include the ".concat(FILE_NAME, " file in the root of the project"));
-                    else {
-                        return [2 /*return*/, find(path.resolve(dir, '..'), dir)];
-                    }
-                    return [2 /*return*/];
-            }
+exports.FrontLogger = void 0;
+var FrontLogger = /** @class */ (function () {
+    function FrontLogger() {
+    }
+    FrontLogger.getInstance = function () {
+        if (!FrontLogger._instance) {
+            FrontLogger._instance = new FrontLogger();
+        }
+        return FrontLogger._instance;
+    };
+    FrontLogger.setConfig = function (backend, options) {
+        FrontLogger._backendInstance = backend;
+    };
+    FrontLogger.socketConection = function () {
+        FrontLogger._socketServer = new WebSocket("ws://localhost:3000");
+        return new Promise(function (resolve, reject) {
+            FrontLogger._socketServer.onopen = function () { return resolve(FrontLogger._socketServer); };
+            FrontLogger._socketServer.onerror = function () { return reject(new Error('There was a problem connecting to WS')); };
         });
-    });
-};
-var Greeter = function (name) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        find()
-            .then(function (config) { return readConfig(config); })
-            .catch(function (err) { return console.log(err); });
-        return [2 /*return*/];
-    });
-}); };
-exports.Greeter = Greeter;
-var readConfig = function (config) {
-    var configJson = fs.readFileSync(config);
-    var parsedConfig = JSON.parse(configJson);
-    console.log(parsedConfig);
-};
+    };
+    FrontLogger.log = function (message) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, fetch(FrontLogger._backendInstance, { method: 'POST', body: JSON.stringify(message) })];
+            });
+        });
+    };
+    return FrontLogger;
+}());
+exports.FrontLogger = FrontLogger;

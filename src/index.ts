@@ -1,5 +1,5 @@
 import DBSequelize from './database/sequelize';
-import Server from './server/server';
+import LoggerServer from './server/server';
 import { SequelizeDBController } from './database/dbcontroller';
 import { RoutingManager } from './api/manager';
 import { router } from './api/routes';
@@ -12,8 +12,9 @@ DBSequelize.getSequelize()
     .then(sequelize => sequelizeController.initializeModel(sequelize))
     .then(sequelize => sequelizeController.syncModelClasses(sequelize))
 
-const server = Server.getInstance(PORT);
-const express = Server.getExpressApp();
+const server = LoggerServer.getInstance(PORT);
+const express = LoggerServer.getExpressApp();
+const ws = LoggerServer.getWebSocketServer();
 
 RoutingManager.initialize(express, sequelizeController);
 RoutingManager.configureRoutes('/', router);

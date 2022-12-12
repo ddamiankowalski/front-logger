@@ -1,28 +1,31 @@
-const FILE_NAME = 'frontlogger.json';
+export class FrontLogger {
+  private static _instance: FrontLogger;
+  private static _backendInstance: string; 
+  private static _socketServer: any;
 
-const fsp = require('fs').promises,
-      path = require('path'),
-      fs = require('fs')
+  constructor() {}
 
-let find: any = async (dir = __dirname, prevDir?: string) => {
-  let ls = await fsp.readdir(dir);
-  if(ls.includes(FILE_NAME))
-    return path.join(dir,FILE_NAME);
-  else if(dir === '/' || dir === prevDir)
-    throw new Error(`In order to use the front-logger please include the ${FILE_NAME} file in the root of the project`);
-  else {
-    return find(path.resolve(dir,'..'), dir);
+  public static getInstance(): FrontLogger {
+    if(!FrontLogger._instance) {
+      FrontLogger._instance = new FrontLogger();
+    }
+    return FrontLogger._instance;
   }
-}
 
-export const Greeter = async (name: string): Promise<any> => {
-    find()
-        .then((config: any) => readConfig(config))
-        .catch((err: any) => console.log(err))
-}; 
+  public static setConfig(backend: string, options?: any) {
+    FrontLogger._backendInstance = backend;
+  }
 
-const readConfig = (config: string): void => {
-    const configJson = fs.readFileSync(config);
-    let parsedConfig = JSON.parse(configJson);
-    console.log(parsedConfig);
+  public static socketConection(): Promise<any> {
+    FrontLogger._socketServer = new WebSocket("ws://localhost:3000");
+
+    return new Promise((resolve, reject) => {
+      FrontLogger._socketServer.onopen = () => resolve(FrontLogger._socketServer);
+      FrontLogger._socketServer.onerror = () => reject(new Error('There was a problem connecting to WS'))
+    })
+  }
+
+  public static async log(message: any): Promise<any> {
+    return fetch(FrontLogger._backendInstance, { method: 'POST', body: JSON.stringify(message) })
+  }
 }

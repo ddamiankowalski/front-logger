@@ -1,6 +1,6 @@
 {
   "name": "@kowalskiddamian/frontlogger",
-  "version": "1.0.18",
+  "version": "1.0.26",
   "description": "A logger service used to log front-end information to the backend server",
   "scripts": {
     "start:dev": "node build/backend",
@@ -11,7 +11,16 @@
   "author": "Damian Kowalski",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.11",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
     "run-script-webpack-plugin": "^0.1.1",
+    "sequelize": "^6.26.0",
+    "source-map-support": "^0.5.21",
+    "sqlite3": "^5.1.2",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.3",
     "webpack": "^5.75.0",
@@ -19,17 +28,7 @@
     "webpack-dev-server": "^4.11.1",
     "webpack-node-externals": "^3.0.0",
     "webpack-shell-plugin-next": "^2.3.1",
-    "@types/express": "^4.17.14",
-    "@types/node": "^18.11.11",
-    "body-parser": "^1.20.1",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.26.0",
-    "source-map-support": "^0.5.21",
-    "sqlite3": "^5.1.2"
-  },
-  "dependencies": {
+    "ws": "^8.11.0"
   },
   "repository": {
     "type": "git",
@@ -38,7 +37,9 @@
   "bugs": {
     "url": "https://github.com/ddamiankowalski/front-logger/issues"
   },
-  "files": ["f-logger-package/lib/**/*"],
+  "files": [
+    "f-logger-package/lib/**/*"
+  ],
   "main": "f-logger-package/lib/index.js",
   "types": "f-logger-package/lib/index.d.ts"
 }
