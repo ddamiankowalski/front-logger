@@ -6,5 +6,5 @@ export declare class FrontLogger {
     static getInstance(): FrontLogger;
     static setConfig(backend: string, options?: any): void;
     static socketConection(): Promise<any>;
-    static log(message: any): Promise<any>;
+    static log(logValue: string, appName: string): Promise<any>;
 }

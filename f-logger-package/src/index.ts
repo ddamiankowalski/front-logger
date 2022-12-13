@@ -25,7 +25,8 @@ export class FrontLogger {
     })
   }
 
-  public static async log(message: any): Promise<any> {
-    return fetch(FrontLogger._backendInstance, { method: 'POST', body: JSON.stringify(message) })
+  public static log(logValue: string, appName: string): void | Promise<any> {
+    const payload = { logValue, appName };
+    FrontLogger._socketServer.send(JSON.stringify(payload));
   }
 }

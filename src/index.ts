@@ -3,6 +3,7 @@ import LoggerServer from './server/server';
 import { SequelizeDBController } from './database/dbcontroller';
 import { RoutingManager } from './api/manager';
 import { router } from './api/routes';
+import { SocketManager } from './server/socketmanager';
 
 declare const module: any;
 const { PORT = 3000 } = process.env;
@@ -14,7 +15,10 @@ DBSequelize.getSequelize()
 
 const server = LoggerServer.getInstance(PORT);
 const express = LoggerServer.getExpressApp();
+
 const ws = LoggerServer.getWebSocketServer();
+const socketManager = new SocketManager(ws, sequelizeController)
+
 
 RoutingManager.initialize(express, sequelizeController);
 RoutingManager.configureRoutes('/', router);

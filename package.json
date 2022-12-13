@@ -1,6 +1,6 @@
 {
   "name": "@kowalskiddamian/frontlogger",
-  "version": "1.0.26",
+  "version": "1.0.28",
   "description": "A logger service used to log front-end information to the backend server",
   "scripts": {
     "start:dev": "node build/backend",

@@ -29,18 +29,7 @@ export default class LoggerServer {
 
     public static getWebSocketServer(): any {
         const wss = new SocketServer({ server: LoggerServer._server });
-
-        wss.on('connection', (ws: any) => {
-            console.log('[WServer]: A client connected');
-
-            ws.on('close', () => console.log('[WServer]: A client disconnected'));
-
-            ws.on('message', (message: any) => {
-                console.log(`[WServer]: Message received: ${message}`)
-            })
-        })
-
-        console.log(wss)
+        return wss;
     }
 
     public static getExpressApp(): core.Express {

@@ -56,10 +56,13 @@ var FrontLogger = /** @class */ (function () {
             FrontLogger._socketServer.onerror = function () { return reject(new Error('There was a problem connecting to WS')); };
         });
     };
-    FrontLogger.log = function (message) {
+    FrontLogger.log = function (logValue, appName) {
         return __awaiter(this, void 0, void 0, function () {
+            var payload;
             return __generator(this, function (_a) {
-                return [2 /*return*/, fetch(FrontLogger._backendInstance, { method: 'POST', body: JSON.stringify(message) })];
+                payload = { logValue: logValue, appName: appName };
+                FrontLogger._socketServer.send(JSON.stringify(payload));
+                return [2 /*return*/];
             });
         });
     };

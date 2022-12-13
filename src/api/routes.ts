@@ -25,10 +25,14 @@ router.post('/log', async (req, res) => {
     const dbController = RoutingManager.getDBController();
     const classInstance = dbController.getClass('logs');
     
-    const record = await classInstance.create({ logValue: req.body.message, appName: req.body.appName });
-    await record.save();
-
-    res.json({ status: 'success', message: 'log added succesfully' });
+    try {
+        const record = await classInstance.create({ logValue: req.body.message, appName: req.body.appName });
+        await record.save();
+        res.json({ status: 'success', message: 'log added succesfully' });
+    } catch(err) {
+        res.status(500)
+        res.json({ status: 500, message: err })
+    }
 })
 
 /**
