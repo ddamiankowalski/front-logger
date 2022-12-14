@@ -8,10 +8,29 @@ text text-size__small text-transform__uppercase
     &.text-size
         &__small
             font-size: 13px
+        &__large
+            font-size: 24px
     
     &.text-transform
+        &__spacing
+            letter-spacing: 1.5px
         &__uppercase
             letter-spacing: 1.5px
+            text-transform: uppercase
+    
+    &.text-icon
+        &__small
+            height: 15px
+            width: 15px
+            font-size: 15px
+
+    &.text-hover
+        transition: .3s color ease-in-out
+        color: rgba(255, 255, 255, 0.4)
+        
+        &:hover
+            color: rgba(255, 255, 255, 1)
+            
 
     &-header
         font-size: 24px

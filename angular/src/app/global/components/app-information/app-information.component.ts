@@ -11,6 +11,8 @@ export class AppInformationComponent implements OnInit {
   @Input() public header: string | undefined;
   @Input() public icon: string | undefined;
 
+  public appDescription: string = 'Some description of the application'
+
   ngOnInit(): void {
   }
 

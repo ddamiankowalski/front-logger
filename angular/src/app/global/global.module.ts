@@ -21,6 +21,8 @@ import { SidenavButtonComponent } from './components/sidenav-button/sidenav-butt
 import { MatRippleModule } from '@angular/material/core';
 import { AppInformationComponent } from './components/app-information/app-information.component';
 import { AppInformationContainerComponent } from './components/app-information-container/app-information-container.component';
+import { LogInfoContainerComponent } from './components/log-info-container/log-info-container.component';
+import { LogInfoComponent } from './components/log-info/log-info.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +35,8 @@ import { AppInformationContainerComponent } from './components/app-information-c
         SidenavButtonComponent,
         AppInformationComponent,
         AppInformationContainerComponent,
+        LogInfoContainerComponent,
+        LogInfoComponent,
     ],
     imports: [ 
         CommonModule,
