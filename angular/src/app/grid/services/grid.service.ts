@@ -11,9 +11,19 @@ export class GridService {
 
     public getColumnDefs(): ColDef[] {
         return [
-            { field: 'id' },
-            { field: 'logValue' },
-            { field: 'createdAt' },
+            { 
+                field: 'logValue', 
+                checkboxSelection: true, 
+                headerName: 'Log Value',
+                minWidth: 150,
+                flex: 2
+            },
+            { 
+                field: 'createdAt', 
+                headerName: 'Date Created',
+                minWidth: 150,
+                valueFormatter: this.dateFormatter
+            },
         ];
     }
 
@@ -22,11 +32,15 @@ export class GridService {
             sortable: true,
             filter: true,
             resizable: true,
-            flex: 1
+            flex: 1,
         }
     }
 
     public getData(appName: string): Observable<any> {
         return this.backend.getLogs(appName);
+    }
+
+    private dateFormatter(params: any): string {
+        return new Date(Date.parse(params.value)).toLocaleDateString();
     }
 }

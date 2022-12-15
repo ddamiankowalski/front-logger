@@ -1,6 +1,9 @@
 <div class="container">
     <mat-icon *ngIf="icon" class="icon-margin__small">{{ icon }}</mat-icon>
-    <span class="text text-header">{{ header }}</span>
+<span class="text text-header">
+        {{ header }}
+        <mat-icon class="margin-left__x-small">edit</mat-icon>
+    </span>
 </div>
 <div class="container container-spacer--top__small"></div>
 <p class="text text-hover">{{ appDescription }}</p>

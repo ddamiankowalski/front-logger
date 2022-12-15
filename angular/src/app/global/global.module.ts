@@ -23,6 +23,7 @@ import { AppInformationComponent } from './components/app-information/app-inform
 import { AppInformationContainerComponent } from './components/app-information-container/app-information-container.component';
 import { LogInfoContainerComponent } from './components/log-info-container/log-info-container.component';
 import { LogInfoComponent } from './components/log-info/log-info.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import { LogInfoComponent } from './components/log-info/log-info.component';
         MatIconModule,
         MatButtonModule,
         MatSidenavModule,
-        MatRippleModule
+        MatRippleModule,
+        MatChipsModule
     ],
     exports: [
         AppContainerComponent

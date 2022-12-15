@@ -1,11 +1,15 @@
 <div class="ag-theme-material">
   <ag-grid-angular 
+    #agGrid
     style="width: 100%; height: 300px" 
+    [getRowId]="getRowId"
     [columnDefs]="columnDefs" 
     [rowData]="rowData$ | async"
     [defaultColDef]="defaultColDefs" 
     [rowSelection]="'multiple'" 
     [animateRows]="true"
+    [suppressRowTransform]="true"
+    (rowSelected)="handleRowSelect($event)"
   >
   </ag-grid-angular>
 </div>

@@ -1,5 +1,7 @@
-<div class="container container-loginfo--item text-hover">
-    <mat-icon class="text text-icon__small">{{ icon }}</mat-icon>
-    <span class="text font-weight__bold text-size__large margin-vertical__small">123</span>
-    <p class="mat-small text text-transform__uppercase text-hover">{{ name }}</p>
-</div>
+<mat-chip-list>
+    <mat-chip (click)="selectChip()" [selected]="isSelected" [color]="'accent'" class="text text-transform__uppercase text-size__x-small">{{ name }}
+        <mat-chip-trailing-icon>
+            <mat-icon class="text text-chip__icon--small">{{ icon }}</mat-icon>
+        </mat-chip-trailing-icon>
+    </mat-chip>
+</mat-chip-list>
