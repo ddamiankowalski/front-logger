@@ -1,0 +1,8 @@
+<div class="container container-gap__x-small">
+    <ng-template ngFor let-button [ngForOf]="buttons">
+        <button mat-raised-button [disabled]="button.disabled" color="accent" class="">{{ button.text }}</button>
+    </ng-template>
+    <button mat-icon-button color="accent">
+        <mat-icon (click)="refreshGrid()">refresh</mat-icon>
+    </button>
+</div>

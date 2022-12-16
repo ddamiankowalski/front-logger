@@ -1,7 +1,11 @@
 <div class="container container-width__full container-gap__medium margin-horizontal__large">
     <ng-template ngFor let-app [ngForOf]="apps">
-        <card class="container container-grid">
-            <grid [appName]="app.appName"></grid>
-        </card>
+        <div class="container-column">
+            <button-section></button-section>
+            <div class="container container-spacer--top__small"></div>
+            <card class="container container-grid">
+                <grid [appName]="app.appName"></grid>
+            </card>
+        </div>
     </ng-template>
 </div>

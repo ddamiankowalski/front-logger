@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ColDef } from "ag-grid-community";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { BackendService } from "src/app/global/services/backend.service";
 
 @Injectable()
@@ -42,5 +42,11 @@ export class GridService {
 
     private dateFormatter(params: any): string {
         return new Date(Date.parse(params.value)).toLocaleDateString();
+    }
+
+    public refresh$: Subject<any> = new Subject();
+
+    public refreshGrid(): void {
+        this.refresh$.next(true);
     }
 }

@@ -24,6 +24,7 @@ import { AppInformationContainerComponent } from './components/app-information-c
 import { LogInfoContainerComponent } from './components/log-info-container/log-info-container.component';
 import { LogInfoComponent } from './components/log-info/log-info.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { ButtonSectionComponent } from '../grid/components/button-section/button-section.component';
 
 @NgModule({
     declarations: [
@@ -38,6 +39,7 @@ import { MatChipsModule } from '@angular/material/chips';
         AppInformationContainerComponent,
         LogInfoContainerComponent,
         LogInfoComponent,
+        ButtonSectionComponent
     ],
     imports: [ 
         CommonModule,
@@ -52,7 +54,8 @@ import { MatChipsModule } from '@angular/material/chips';
         MatChipsModule
     ],
     exports: [
-        AppContainerComponent
+        AppContainerComponent,
+        CardComponent
     ],
     providers: [],
 })

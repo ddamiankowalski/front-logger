@@ -26,6 +26,7 @@ export class GridComponent implements OnInit, AfterViewInit {
   public getRowId = (params: any) => params.data.id;
 
   ngOnInit(): void {
+    this.grid.refresh$.subscribe(x => console.log(x))
     this.rowData$ = this.grid.getData(this.appName);
   }
 
